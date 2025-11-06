@@ -72,39 +72,65 @@
         $('#contact_form').on('submit', function (e) {
             e.preventDefault();
             
-            if (!e.isDefaultPrevented()) {
-                // Get form values
-                var name = $('#form_name').val();
-                var email = $('#form_email').val();
-                var subject = $('#form_subject').val();
-                var message = $('#form_message').val();
-                
-                // Create WhatsApp message text with readable formatting
-                var whatsappText = "Hello! I'd like to get in touch with you.\n\n" +
-                                   "Full Name: " + name + "\n" +
-                                   "Email Address: " + email + "\n" +
-                                   "Subject: " + subject + "\n\n" +
-                                   "Message:\n" + message;
-                
-                // Encode the text for URL
-                var encodedText = encodeURIComponent(whatsappText);
-                
-                // Create WhatsApp URL
-                var whatsappURL = "https://wa.me/628119692087?text=" + encodedText;
-                
-                // Open WhatsApp in a new window
-                window.open(whatsappURL, '_blank');
-                
-                // Show success message
-                var alertBox = '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Redirecting to WhatsApp...</div>';
-                $('#contact_form').find('.messages').html(alertBox);
-                
-                // Reset form after a short delay
-                setTimeout(function() {
-                    $('#contact_form')[0].reset();
-                    $('#contact_form').find('.messages').html('');
-                }, 2000);
+            // Get form values
+            var name = $('#form_name').val().trim();
+            var email = $('#form_email').val().trim();
+            var subject = $('#form_subject').val().trim();
+            var message = $('#form_message').val().trim();
+            
+            // Manual validation check
+            var isValid = true;
+            var errorMessage = '';
+            
+            if (!name) {
+                isValid = false;
+                errorMessage = 'Please enter your name.';
+            } else if (!email) {
+                isValid = false;
+                errorMessage = 'Please enter your email address.';
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid email address.';
+            } else if (!subject) {
+                isValid = false;
+                errorMessage = 'Please enter a subject.';
+            } else if (!message) {
+                isValid = false;
+                errorMessage = 'Please enter a message.';
             }
+            
+            if (!isValid) {
+                // Show error message
+                var alertBox = '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + errorMessage + '</div>';
+                $('#contact_form').find('.messages').html(alertBox);
+                return false;
+            }
+            
+            // Create WhatsApp message text with readable formatting
+            var whatsappText = "Hello! I'd like to get in touch with you.\n\n" +
+                               "Full Name: " + name + "\n" +
+                               "Email Address: " + email + "\n" +
+                               "Subject: " + subject + "\n\n" +
+                               "Message:\n" + message;
+            
+            // Encode the text for URL
+            var encodedText = encodeURIComponent(whatsappText);
+            
+            // Create WhatsApp URL
+            var whatsappURL = "https://wa.me/628119692087?text=" + encodedText;
+            
+            // Open WhatsApp in a new window
+            window.open(whatsappURL, '_blank');
+            
+            // Show success message
+            var alertBox = '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Redirecting to WhatsApp...</div>';
+            $('#contact_form').find('.messages').html(alertBox);
+            
+            // Reset form after a short delay
+            setTimeout(function() {
+                $('#contact_form')[0].reset();
+                $('#contact_form').find('.messages').html('');
+            }, 2000);
             
             return false;
         });
