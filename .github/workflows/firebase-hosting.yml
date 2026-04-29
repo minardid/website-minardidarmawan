@@ -20,13 +20,10 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Check node_modules
-        run: ls -la node_modules/.bin/ | head -20
+        run: npm install --legacy-peer-deps
 
       - name: Build website
-        run: ./node_modules/.bin/astro build
+        run: npx astro build
 
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
