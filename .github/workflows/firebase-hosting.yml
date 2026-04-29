@@ -27,10 +27,8 @@ jobs:
         run: npm run build
 
       - name: Deploy to Firebase
-        uses: nwtgck/actions-google-cloud@v1.1.0
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          service_account_key: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          project_id: website-minardi-darmawan
-          args: firebase deploy --only hosting --project website-minardi-darmawan
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: website-minardi-darmawan
