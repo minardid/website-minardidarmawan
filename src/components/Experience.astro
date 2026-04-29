@@ -1,0 +1,178 @@
+---
+const experiences = [
+  {
+    company: "Halodoc",
+    role: "Product Manager",
+    period: "2022 — Present",
+    type: "Healthcare",
+    achievements: [
+      "Led product strategy for digital health platform serving millions of users",
+      "Improved member engagement by 40% through personalized health recommendations",
+      "Built connected healthcare ecosystem integrating telemedicine, pharmacy, and insurance"
+    ]
+  },
+  {
+    company: "Skillvance",
+    role: "Product Manager",
+    period: "2020 — 2022",
+    type: "HR Tech",
+    achievements: [
+      "Launched mobile attendance system adopted by 500+ enterprise clients",
+      "Developed payroll management module processing 100K+ employee records monthly",
+      "Streamlined HR workflows reducing administrative overhead by 35%"
+    ]
+  },
+  {
+    company: "Various Startups",
+    role: "Software Engineer → Product Lead",
+    period: "2017 — 2020",
+    type: "Technology Solutions",
+    achievements: [
+      "Started as SWE, transitioned to product management role",
+      "Delivered workflow automation tools for SMBs increasing efficiency by 50%",
+      "Shipped 5+ products from ideation to launch in fast-paced startup environments"
+    ]
+  }
+];
+---
+
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Experience</span>
+      <h2 class="section-title">Where I've made an impact.</h2>
+      <p class="section-subtitle">
+        From writing code to defining product strategy — each role sharpened my ability to ship products that matter.
+      </p>
+    </div>
+
+    <div class="timeline">
+      {experiences.map((exp, index) => (
+        <div class={`timeline-item reveal`} style={`transition-delay: ${index * 100}ms`}>
+          <div class="timeline-accent"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-meta">
+                <span class="pill pill-accent">{exp.type}</span>
+                <span class="timeline-period">{exp.period}</span>
+              </div>
+              <h3 class="timeline-company">{exp.company}</h3>
+              <p class="timeline-role">{exp.role}</p>
+            </div>
+            <ul class="timeline-achievements">
+              {exp.achievements.map((achievement) => (
+                <li>{achievement}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header .section-subtitle {
+    margin-top: var(--space-4);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: 800px;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: var(--space-8);
+  }
+
+  .timeline-accent {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 2px;
+    height: calc(100% - 8px);
+    background: var(--border-subtle);
+    border-radius: 1px;
+  }
+
+  .timeline-item:hover .timeline-accent {
+    background: var(--accent-violet);
+    transition: background var(--transition-fast);
+  }
+
+  .timeline-content {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-fast);
+  }
+
+  .timeline-item:hover .timeline-content {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-hover);
+  }
+
+  .timeline-header {
+    margin-bottom: var(--space-5);
+  }
+
+  .timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .timeline-period {
+    font-size: 13px;
+    color: var(--text-quaternary);
+    font-weight: 500;
+  }
+
+  .timeline-company {
+    font-size: 18px;
+    font-weight: 590;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .timeline-role {
+    font-size: 14px;
+    color: var(--text-tertiary);
+  }
+
+  .timeline-achievements {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .timeline-achievements li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .timeline-achievements li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-violet);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+</style>

@@ -1,0 +1,146 @@
+---
+const skillGroups = [
+  {
+    category: "Product",
+    skills: ["Product Strategy", "Roadmapping", "User Research", "A/B Testing", "Analytics", "OKRs"]
+  },
+  {
+    category: "Design",
+    skills: ["Wireframing", "Prototyping", "Figma", "User Flows", "Design Systems"]
+  },
+  {
+    category: "Engineering",
+    skills: ["System Design", "API Design", "Agile/Scrum", "Technical Debt", "Code Review"]
+  },
+  {
+    category: "Data",
+    skills: ["SQL", "Google Analytics", "Mixpanel", "Data Modeling", "Excel"]
+  }
+];
+---
+
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Toolkit</span>
+      <h2 class="section-title">What I work with.</h2>
+    </div>
+
+    <div class="skills-grid">
+      {skillGroups.map((group, index) => (
+        <div class={`skill-group reveal`} style={`transition-delay: ${index * 100}ms`}>
+          <h3 class="skill-category">{group.category}</h3>
+          <div class="skill-pills">
+            {group.skills.map((skill) => (
+              <span class="pill">{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="certifications reveal">
+      <span class="cert-label">Certifications</span>
+      <div class="cert-links">
+        <a href="https://www.credly.com/users/minardi-darmawan/badges#credly" target="_blank" class="cert-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="7"></circle>
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+          </svg>
+          View Credly Badges
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    margin-bottom: var(--space-12);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+  }
+
+  @media (max-width: 1024px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .skill-group {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .skill-category {
+    font-size: 13px;
+    font-weight: 590;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-4);
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .skill-pills .pill {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .certifications {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-lg);
+  }
+
+  .cert-label {
+    font-size: 13px;
+    font-weight: 510;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+  }
+
+  .cert-links {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 14px;
+    font-weight: 510;
+    color: var(--accent-violet);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .cert-link:hover {
+    color: var(--accent-hover);
+  }
+</style>

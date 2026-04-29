@@ -1,0 +1,237 @@
+---
+---
+
+<section id="hero" class="hero-section">
+  <div class="hero-glow"></div>
+  <div class="container hero-content">
+    <div class="hero-overline animate-fade-in">
+      <span class="status-dot"></span>
+      <span>Available for opportunities</span>
+    </div>
+
+    <h1 class="hero-headline display-xl animate-fade-in animate-delay-1">
+      Former SWE,<br />
+      <span class="accent">Product Guy.</span>
+    </h1>
+
+    <p class="hero-subtitle animate-fade-in animate-delay-2">
+      7+ years shipping products that matter — from digital health platforms<br class="hide-mobile" />
+      to HR systems and workflow automation tools.
+    </p>
+
+    <div class="hero-cta animate-fade-in animate-delay-3">
+      <a href="#portfolio" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        View Work
+      </a>
+      <a href="https://firebasestorage.googleapis.com/v0/b/website-minardi-darmawan.appspot.com/o/CV%20Minardi%20Darmawan%20-%20Jun%202025.pdf?alt=media&token=5e5c7f55-c08c-4f1a-9a8c-3e8b2f9d7c0a" target="_blank" class="btn btn-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download CV
+      </a>
+    </div>
+
+    <div class="hero-stats animate-fade-in animate-delay-4">
+      <div class="stat">
+        <span class="stat-value">7+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">3</span>
+        <span class="stat-label">Industries</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">10+</span>
+        <span class="stat-label">Products Shipped</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator animate-fade-in animate-delay-5">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <polyline points="19 12 12 19 5 12"></polyline>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-20) 0;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(113, 112, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+  }
+
+  .hero-overline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 13px;
+    font-weight: 510;
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-8);
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--success-green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .hero-headline {
+    margin-bottom: var(--space-6);
+    color: var(--text-primary);
+  }
+
+  .hero-headline .accent {
+    color: var(--accent-violet);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin-bottom: var(--space-10);
+  }
+
+  .hide-mobile {
+    display: inline;
+  }
+
+  @media (max-width: 640px) {
+    .hide-mobile {
+      display: none;
+    }
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-16);
+    flex-wrap: wrap;
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    display: block;
+    font-size: 28px;
+    font-weight: 510;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border-subtle);
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 12px;
+    font-weight: 510;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-scroll-indicator svg {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  @media (max-width: 640px) {
+    .hero-section {
+      padding: var(--space-16) 0;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .stat-divider {
+      width: 60px;
+      height: 1px;
+    }
+
+    .hero-scroll-indicator {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,173 @@
+---
+const projects = [
+  {
+    name: "Halodoc Health Platform",
+    category: "Healthcare",
+    description: "Led product strategy for Indonesia's leading digital health platform, improving healthcare accessibility for millions of users through telemedicine, pharmacy integration, and insurance connectivity.",
+    impact: "40% increase in member engagement",
+    tags: ["Product Strategy", "User Growth", "Platform"]
+  },
+  {
+    name: "Enterprise Attendance System",
+    category: "HR Tech",
+    description: "Built mobile-first attendance and time tracking solution adopted by 500+ enterprise clients, replacing legacy systems with a modern, intuitive experience.",
+    impact: "500+ enterprise clients",
+    tags: ["Mobile", "B2B", "Enterprise"]
+  },
+  {
+    name: "Payroll Management Module",
+    category: "HR Tech",
+    description: "Designed and launched comprehensive payroll processing module handling sensitive employee data with robust compliance and seamless HRIS integrations.",
+    impact: "100K+ employees processed monthly",
+    tags: ["FinTech", "Compliance", "Scale"]
+  },
+  {
+    name: "Workflow Automation Suite",
+    category: "Technology Solutions",
+    description: "Developed workflow automation tools enabling SMBs to streamline operations, reduce manual work, and optimize resource allocation across departments.",
+    impact: "50% efficiency improvement",
+    tags: ["Automation", "SMB", "B2B"]
+  }
+];
+---
+
+<section id="portfolio" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Products I've built.</h2>
+      <p class="section-subtitle">
+        A selection of projects that shaped my product career — from strategy to execution.
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+      {projects.map((project, index) => (
+        <article class={`portfolio-card reveal`} style={`transition-delay: ${index * 100}ms`}>
+          <div class="portfolio-card-header">
+            <span class="pill pill-accent">{project.category}</span>
+            <span class="portfolio-impact">{project.impact}</span>
+          </div>
+
+          <h3 class="portfolio-name">{project.name}</h3>
+          <p class="portfolio-description">{project.description}</p>
+
+          <div class="portfolio-tags">
+            {project.tags.map((tag) => (
+              <span class="pill">{tag}</span>
+            ))}
+          </div>
+
+          <div class="portfolio-card-footer">
+            <span class="portfolio-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+              Case study coming soon
+            </span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header .section-subtitle {
+    margin-top: var(--space-4);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .portfolio-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    transition: all var(--transition-fast);
+  }
+
+  .portfolio-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .portfolio-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .portfolio-impact {
+    font-size: 12px;
+    font-weight: 510;
+    color: var(--success-green);
+    font-family: var(--font-mono);
+  }
+
+  .portfolio-name {
+    font-size: 18px;
+    font-weight: 590;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .portfolio-description {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .portfolio-tags .pill {
+    font-size: 11px;
+    padding: 2px 8px;
+    color: var(--text-quaternary);
+  }
+
+  .portfolio-card-footer {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 13px;
+    font-weight: 510;
+    color: var(--text-quaternary);
+    transition: color var(--transition-fast);
+  }
+
+  .portfolio-card:hover .portfolio-link {
+    color: var(--text-tertiary);
+  }
+</style>

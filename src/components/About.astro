@@ -1,0 +1,151 @@
+---
+const highlights = [
+  {
+    value: "7+",
+    label: "Years in Product",
+    description: "From code to strategy"
+  },
+  {
+    value: "10+",
+    label: "Products Shipped",
+    description: "Across 3 industries"
+  },
+  {
+    value: "3",
+    label: "Industries",
+    description: "Healthcare, HR, Tech"
+  },
+];
+---
+
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <div class="section-header reveal">
+          <span class="section-label">About</span>
+          <h2 class="section-title">From code to product strategy.</h2>
+        </div>
+
+        <div class="about-text reveal">
+          <p>
+            I'm Minardi — a Product Manager with 7+ years of experience, but I didn't start there. 
+            My foundation is in software engineering, which means I don't just understand what the tech 
+            team is building — I understand <em>how</em> they think and <em>why</em> certain approaches take longer.
+          </p>
+          <p>
+            I've spent the last several years leading product for companies in healthcare, human resources, 
+            and technology solutions. From digital health platforms that improve healthcare accessibility 
+            to mobile attendance and payroll systems serving thousands of employees — I've shipped products 
+            that solve real problems.
+          </p>
+          <p>
+            What drives me is the intersection of user need and business impact. I believe the best products 
+            come from deeply understanding users, making data-informed decisions, and maintaining a clear 
+            strategic vision while staying flexible in execution.
+          </p>
+        </div>
+
+        <div class="about-cta reveal">
+          <a href="https://www.linkedin.com/in/minardidarmawan/" target="_blank" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+
+      <div class="about-highlights">
+        {highlights.map((item, index) => (
+          <div class={`highlight-card reveal`} style={`animation-delay: ${index * 100}ms`}>
+            <span class="highlight-value">{item.value}</span>
+            <span class="highlight-label">{item.label}</span>
+            <span class="highlight-desc">{item.description}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  @media (max-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+    }
+  }
+
+  .about-content .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+  }
+
+  .about-text p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .about-text em {
+    color: var(--text-primary);
+    font-style: normal;
+  }
+
+  .about-highlights {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .highlight-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-fast);
+  }
+
+  .highlight-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-hover);
+  }
+
+  .highlight-value {
+    display: block;
+    font-size: 36px;
+    font-weight: 510;
+    color: var(--accent-violet);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-1);
+  }
+
+  .highlight-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 590;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .highlight-desc {
+    display: block;
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+</style>

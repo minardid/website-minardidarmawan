@@ -1,18 +1,13 @@
 {
-  "name": "website-minardidarmawan",
+  "name": "minardi-portfolio",
+  "type": "module",
   "version": "1.0.0",
-  "description": "Personal website for Minardi Darmawan",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"No tests specified\" && exit 0",
-    "build": "echo \"Build complete\" && exit 0",
-    "deploy": "firebase deploy --only hosting"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "firebase-tools": "^11.0.1"
-  },
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "private": true
+    "astro": "^5.0.0"
+  }
 }

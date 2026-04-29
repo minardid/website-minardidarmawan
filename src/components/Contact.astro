@@ -1,0 +1,191 @@
+---
+const socials = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/minardidarmawan/",
+    icon: `<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>`
+  },
+  {
+    name: "Credly",
+    url: "https://www.credly.com/users/minardi-darmawan/badges#credly",
+    icon: `<circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>`
+  },
+  {
+    name: "Email",
+    url: "mailto:hello@minardidarmawan.id",
+    icon: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>`
+  }
+];
+---
+
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-content reveal">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's work together.</h2>
+        <p class="contact-subtitle">
+          Whether you're looking for a product leader to join your team, 
+          or need help shaping your product strategy — I'd love to hear from you.
+        </p>
+
+        <div class="social-links">
+          {socials.map((social) => (
+            <a href={social.url} target="_blank" class="social-link" aria-label={social.name}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={social.icon}></svg>
+              <span>{social.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper reveal">
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/hello@minardidarmawan.id" method="POST">
+          <input type="hidden" name="_subject" value="Portfolio Contact" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+    }
+  }
+
+  .section-label {
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-title {
+    font-size: clamp(28px, 5vw, 40px);
+    margin-bottom: var(--space-5);
+  }
+
+  .contact-subtitle {
+    font-size: 17px;
+    color: var(--text-tertiary);
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 510;
+    transition: all var(--transition-fast);
+  }
+
+  .social-link:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+
+  .contact-form-wrapper {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-group label {
+    font-size: 13px;
+    font-weight: 510;
+    color: var(--text-tertiary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-standard);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    font-size: 15px;
+    color: var(--text-primary);
+    transition: border-color var(--transition-fast);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-violet);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--text-quaternary);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .btn-full {
+    width: 100%;
+    justify-content: center;
+  }
+</style>
